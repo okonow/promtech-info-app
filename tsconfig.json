@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "target": "ES2024",                     
+      "module": "ESNext",                     
+      "moduleResolution": "node",             
+      "strict": true,                         
+      "esModuleInterop": true,                
+      "skipLibCheck": true,      
+      "rootDir": "./src",            
+      "types": ["node"], 
+      "forceConsistentCasingInFileNames": true, 
+      "resolveJsonModule": true,              
+      "allowSyntheticDefaultImports": true,   
+      "experimentalDecorators": true,         
+      "emitDecoratorMetadata": true,        
+      "allowImportingTsExtensions": true,  
+      "noEmit": true,                         
+      "outDir": "./dist",                     
+      "baseUrl": "./",                        // Устанавливаем baseUrl на корень проекта
+      "paths": {
+        "@/*": ["src/*"],                      // Алиас @ указывает на папку src
+        // "@sequilize": ["node_modules/"]
+      }
+    },
+    "include": ["src/**/*.ts", "src/config/db.ts"],                
+    "exclude": ["dist"]        
+  }
+  
