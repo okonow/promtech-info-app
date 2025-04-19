@@ -2,7 +2,6 @@ import { Table, Column, Model, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import User from './user';
 import News from './news';
-import Contact from './contact';
 
 @Table({
   timestamps: true, //createdAt updateAt будут создаваться автоматически
@@ -27,9 +26,4 @@ export default class Company extends Model<Company> {
   @HasMany(() => News)
   news?: News[];
 
-  @HasMany(() => Contact)
-  contacts?: Contact[];
-
-  @HasMany(() => EnterpriseMap)
-  maps!: EnterpriseMap[];
 }

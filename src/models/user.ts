@@ -1,83 +1,91 @@
-
-// export interface User {
-//     id: string;
-//     first_name: string;
-//     middle_name: string;
-//     last_name: string;
-//     email: string;
-//     password: string;
-//     phone_number: string;
-//     position: string;
-//     department: string;
-//     role: 'admin' | 'user';
-//     phone: string;
-//     company_id: string;
-//     createdAt: Date;
-//     updatedAt: Date;
-//   }
-  
-import { Table, Column, Model, HasMany, Scopes, BelongsTo, PrimaryKey } from 'sequelize-typescript';
+import { Table, Column, Model, HasMany, BelongsTo, ForeignKey } from 'sequelize-typescript';
 import Company from './companies';
 import Department from './departments';
 import { v4 as uuidv4 } from 'uuid';
-
-  @Table
-  export default class User extends Model<User> {
-    
-    @Column({
-      type: 'UUID',
-      primaryKey: true,
-      defaultValue: () => uuidv4(),
-    })
-    id!: string;
-
-    @Column
-    first_name!: string;
-
-    @Column
-    last_name!: string;
-
-    // @Column
-    // middle_name?: string; нет отчества?
+import Position from './positions';
+import News from './news';
+import Notification from './notifications';
+@Table
+export default class User extends Model<User> {
   
-    @Column
-    email!: string;
+  @Column({
+    type: 'UUID',
+    primaryKey: true,
+    defaultValue: () => uuidv4(),
+  })
+  id!: string;
 
-    @Column
-    password!: string;
+  @Column
+  first_name!: string;
 
-    @Column
-    phone_number!: string;
+  @Column({
+    allowNull: false,
+    unique: true
+  })
+  corporate_login!: string;
 
-    @Column({
-      type: 'UUID'
-    })
-    position_id!: string;
+  @Column
+  last_name!: string;
 
-    @Column({
-      type: 'UUID'
-    })
-    company_id!: string;
+  @Column
+  middle_name?: string;
 
-    @ForeignKey(() => Department)
-    @Column({
-      type: 'UUID'
-    })
-    department_id!: string;
+  @Column
+  email!: string;
 
-    @Column({
-      type: 'UUID'
-    })
-    role_id!: string;
+  @Column
+  password!: string;
 
-    @Column({ defaultValue: new Date() })
-    createdAt!: Date;
+  @Column
+  phone_number!: string;
 
-    @BelongsTo(() => Company)
-    department!: Company;
+  @Column
+  birthday!: Date;
 
-    // @Column
-    // birthday?: Date; нет ДР?
-  
+  @Column({
+    type: 'ENUM',
+    values: ['admin', 'user'],
+    defaultValue: 'user'
+  })
+  role!: string;
 
-  }
+  //explicit foreing keys
+
+  @ForeignKey(() => Position)
+  @Column({
+    type: 'UUID'
+  })
+  position_id!: string;
+
+  @ForeignKey(() => Company)
+  @Column({
+    type: 'UUID'
+  })
+  company_id!: string;
+
+  @ForeignKey(() => Department)
+  @Column({
+    type: 'UUID'
+  })
+  department_id!: string;
+
+  //relations with other models
+
+  @BelongsTo(() => Company)
+  company!: Company;
+
+  @BelongsTo(() => Department)
+  department!: Department;
+
+  @BelongsTo(() => Position)
+  position!: Position;
+
+  @HasMany(() => News)
+  news!: News[];
+
+  @HasMany(() => Notification)
+  notifications!: Notification[];
+
+  @Column
+  refresh_token?: string;
+}

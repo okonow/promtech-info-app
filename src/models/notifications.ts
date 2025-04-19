@@ -1,4 +1,4 @@
-import { Table, Column, Model, ForeignKey, BelongsTo, Index } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, BelongsTo, Index, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import User from './user';
 
@@ -12,12 +12,8 @@ export default class Notification extends Model<Notification> {
   })
   id!: string;
 
-  @ForeignKey(() => User)
-  @Column({ type: 'UUID' })
-  userId!: string;
-
-  @BelongsTo(() => User)
-  user!: User;
+  @Column
+  title!: string;
 
   @Column('TEXT')
   message!: string;
@@ -25,6 +21,11 @@ export default class Notification extends Model<Notification> {
   @Column({ type: 'BOOLEAN', defaultValue: false })
   read!: boolean;
 
-  @Column({ defaultValue: new Date() })
-  createdAt!: Date;
+  @ForeignKey(() => User)
+  @Column({ type: 'UUID' })
+  user_id!: string;
+
+  @BelongsTo(() => User)
+  user!: User;
+  
 }

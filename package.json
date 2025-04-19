@@ -6,7 +6,12 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
-    "serve": "node dist/index.js"
+    "serve": "node dist/index.js",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart"
   },
   "repository": {
     "type": "git",
@@ -28,6 +33,10 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
+    "pg": "^8.14.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
     "uuid": "^11.1.0"
   }

@@ -1,10 +1,9 @@
 import { Table, Column, Model, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import User from './user';
-import News from './news';
 
 @Table
-export default class Department extends Model<Department> {
+export default class Position extends Model<Position> {
   @Column({
     type: 'UUID',
     primaryKey: true,
@@ -17,8 +16,5 @@ export default class Department extends Model<Department> {
 
   @HasMany(() => User)
   users?: User[];
-
-  @HasMany(() => News)
-  news?: News[];
 
 }
