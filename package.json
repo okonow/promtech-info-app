@@ -1,0 +1,20 @@
+{
+  "name": "promtech-info-app",
+  "version": "1.0.0",
+  "description": "Corporate application \"PROMTECH\" (\"ПРОМТЕХ\") designed to simplify the access of company employees to important information and internal services",
+  "homepage": "https://github.com/okonow/promtech-info-app#readme",
+  "bugs": {
+    "url": "https://github.com/okonow/promtech-info-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okonow/promtech-info-app.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
