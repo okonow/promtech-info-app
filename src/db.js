@@ -2,6 +2,7 @@ import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import models from './models/index.js';
 
 dotenv.config();
 
@@ -15,6 +16,21 @@ export const sequelize = new Sequelize({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: parseInt(process.env.DB_PORT || '5432'),
-    models: [path.join(__dirname, 'models', '*.js')],
-    logging: false // can be enabled for SQL query debugging
-}); 
+    logging: false 
+});
+
+
+Object.values(models).forEach(model => {
+    if (model.init) {
+        model.init(sequelize);
+    }
+});
+
+
+Object.values(models).forEach(model => {
+    if (model.associate) {
+        model.associate(models);
+    }
+});
+
+export default sequelize; 

@@ -1,9 +1,9 @@
 import User from './user.js';
-import Company from './companies.js';
-import Department from './departments.js';
-import Position from './positions.js';
+import Company from './company.js';
+import Department from './department.js';
+import Position from './position.js';
 import News from './news.js';
-import Notification from './notifications.js';
+import Notification from './notification.js';
 import Document from './document.js';
 
 const models = {
