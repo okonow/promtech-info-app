@@ -50,6 +50,35 @@ class UserRepository {
         const finalOptions = { ...defaultOptions, ...options };
         return await this.User.findAll(finalOptions);
     }
+
+    async createUser(userData) {
+        return await this.User.create(userData);
+    }
+
+    async updateUser(id, userData) {
+        const [updatedRows] = await this.User.update(userData, {
+            where: { id },
+            returning: true
+        });
+        
+        if (updatedRows === 0) {
+            throw new Error('User not found');
+        }
+        
+        return await this.getUserById(id);
+    }
+
+    async deleteUser(id) {
+        const deletedRows = await this.User.destroy({
+            where: { id }
+        });
+        
+        if (deletedRows === 0) {
+            throw new Error('User not found');
+        }
+        
+        return true;
+    }
 }
 
 export default UserRepository;

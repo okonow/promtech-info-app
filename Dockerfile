@@ -1,5 +1,5 @@
 # Build stage
-FROM oven/bun:latest-alpine AS builder
+FROM oven/bun:alpine AS builder
 
 # Установка рабочей директории
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile
 
 # Production stage
-FROM oven/bun:latest-alpine
+FROM oven/bun:alpine
 
 # Установка curl для healthcheck
 RUN apk add --no-cache curl

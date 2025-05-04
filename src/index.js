@@ -1,8 +1,13 @@
 import express from 'express';
 import { sequelize } from './db.js';
 import dotenv from 'dotenv';
-import userRouter from './routes/userRouter.js';
-import newsRouter from './routes/newsRouter.js';
+import userRouter from './routes/userRoutes.js';
+import newsRouter from './routes/newsRoutes.js';
+import departmentRouter from './routes/departmentRoutes.js';
+import companyRouter from './routes/companyRoutes.js';
+import { userService, departmentService, companyService } from './services/index.js';
+import path from 'path';
+import fs from 'fs';
 
 // Load environment variables
 dotenv.config();
@@ -15,8 +20,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api/users', userRouter);
+app.use('/api/users', userRouter(userService));
 app.use('/api/news', newsRouter);
+app.use('/api/departments', departmentRouter(departmentService));
+app.use('/api/companies', companyRouter(companyService));
 
 // Health check endpoint
 app.get('/health', async (req, res) => {
@@ -57,6 +64,12 @@ const start = async () => {
         // Sync models with database
         await sequelize.sync();
         console.log('Database synchronized');
+
+        // Add data to DB
+        const dbsqlFilePath = path.join(__dirname, 'db.sql');
+        const sqlScript = fs.readFileSync(dbsqlFilePath, 'utf8');
+        const [results, metadata] = await sequelize.query(sqlScript);
+        console.log(results);
 
         // Start server
         app.listen(port, () => {
