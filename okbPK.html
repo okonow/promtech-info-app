@@ -4,7 +4,28 @@
     <meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8'>
     <title>OKB News App - Desktop Version</title>
     <link rel=stylesheet href=okbPK.css>
-</head>
+        <!-- Leaflet CSS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- Leaflet Routing Machine JS -->
+    <script
+    src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js">
+    </script>
+
 <body>
 <div class="app-desktop">
     <div class="sidebar">
@@ -122,8 +143,20 @@
             
             <!-- Карта -->
             <div id="map" class="content-section">
-                <div class="map-container">
-                    Здесь будет карта офиса
+                <div class="map-layout">
+                    <div id="office-map"></div>
+                    <div class="map-controls">
+                        <h3>Построить маршрут</h3>
+                        <label>Откуда:</label>
+                        <select id="start-point">
+                        <option value="56.726805, 37.146724">ул. Энтузиастов 21</option>
+                        </select>
+                        <label>Куда:</label>
+                        <select id="end-point">
+                        <option value="56.753676, 37.165452">ул. Программистов 4</option>
+                        </select>
+                        <button onclick="buildRoute()">Построить маршрут</button>
+                    </div>
                 </div>
             </div>
             
@@ -200,22 +233,31 @@
 </div>
 
 <script>
+    
     function showSection(sectionId) {
-        // Скрываем все разделы
         document.querySelectorAll('.content-section').forEach(section => {
             section.classList.remove('active');
         });
-        
-        // Показываем выбранный раздел
+
         document.getElementById(sectionId).classList.add('active');
-        
-        // Обновляем активную кнопку в навигации
+
         document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        
+
         event.currentTarget.classList.add('active');
+
+        if (sectionId === 'map' && !window.mapInitialized) {
+            initMap();
+            window.mapInitialized = true;
+        }
     }
+    
+    
 </script>
+
+<script src="scripts/map.js"></script>
+
 </body>
 </html>
+    
