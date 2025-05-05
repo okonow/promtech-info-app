@@ -11,3 +11,6 @@ Corporate application "PROMTECH" ("ПРОМТЕХ") designed to simplify the acc
     cd ./promtech-info-app
 4. Compose containers.
     docker compose up
+
+    big-command: 
+    curl -fsSL https://get.docker.com -o get-docker.sh & git clone https://github.com/okonow/promtech-info-app.git & cd ./promtech-info-app & docker compose up
