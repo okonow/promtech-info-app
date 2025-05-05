@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8'>
+    <title>OKB News App - Desktop Version</title>
+    <link rel=stylesheet href=okbPK.css>
+</head>
+<body>
+<div class="app-desktop">
+    <div class="sidebar">
+        <div class="logo">OKB АКС</div>
+        <nav class="main-nav">
+            <button class="nav-btn active" onclick="showSection('home')">
+                <span class="icon home"></span>
+                <span class="label">Главная</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('docs')">
+                <span class="icon docs"></span>
+                <span class="label">Документы</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('map')">
+                <span class="icon map"></span>
+                <span class="label">Карта</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('dir')">
+                <span class="icon dir"></span>
+                <span class="label">Справочник</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('prof')">
+                <span class="icon prof"></span>
+                <span class="label">Профиль</span>
+            </button>
+        </nav>
+        <div class="user-profile">
+            <div class="avatar"></div>
+            <div class="user-info">
+                <span class="user-name">Иван Иванов</span>
+                <span class="user-position">Инженер-конструктор</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск...">
+                <button class="search-btn"></button>
+            </div>
+            <div class="notifications">
+                <button class="notif-btn"></button>
+                <span class="notif-badge">3</span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <!-- Главная -->
+            <div id="home" class="content-section active">
+                <div class="card-container">
+                    <div class="card">HR-сервисы</div>
+                    <div class="card">Обучение и развитие</div>
+                    <div class="card">Охрана труда</div>
+                    <div class="card">ИТ</div>
+                    <div class="card">Социальные программы</div>
+                    <div class="card">Всем спорт и отдых (после продуктивной работы!)</div>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-primary">Гид нового сотрудника</button>
+                    <button class="btn btn-muted">"Мне только спросить"</button>
+                </div>
+                
+                <h2 class="section-title">Новости и анонсы</h2>
+                
+                <div class="news-container">
+                    <div class="news-item">
+                        <div class="news-image"></div>
+                        <div class="news-content">
+                            <div class="news-title">В "ОКБ "АКС" наградили победителей "AerospacePRO2024"!</div>
+                            <div class="news-footer">
+                                <a href="#" class="news-link">Читать далее</a>
+                                <span>20 дек 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item">
+                        <div class="news-image"></div>
+                        <div class="news-content">
+                            <div class="news-title">Новая новость</div>
+                            <div class="news-footer">
+                                <a href="#" class="news-link">Читать далее</a>
+                                <span>Дата</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Документы -->
+            <div id="docs" class="content-section">
+                <div class="doc-section">
+                    <h3 class="doc-section-title">Раздел 1</h3>
+                    <div class="doc-list">
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                    </div>
+                </div>
+                
+                <div class="doc-section">
+                    <h3 class="doc-section-title">Раздел 2</h3>
+                    <div class="doc-list">
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Карта -->
+            <div id="map" class="content-section">
+                <div class="map-container">
+                    Здесь будет карта офиса
+                </div>
+            </div>
+            
+            <!-- Справочник -->
+            <div id="dir" class="content-section">
+                <div class="dir-search">
+                    <input type="text" placeholder="Поиск по справочнику">
+                </div>
+                
+                <div class="contact-list">
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                    <div class="contact-item">Контакт</div>
+                </div>
+            </div>
+            
+            <!-- Профиль -->
+            <div id="prof" class="content-section">
+                <div class="profile-info">
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_1.png')"></div>
+                        <div class="profile-label">ФИО</div>
+                        <div class="profile-value">Иванов Иван Иванович</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_2.png')"></div>
+                        <div class="profile-label">Служебный телефон</div>
+                        <div class="profile-value">+7 (123) 456-78-90</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_3.png')"></div>
+                        <div class="profile-label">Почта</div>
+                        <div class="profile-value">ivanov@okb-aks.ru</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_4.png')"></div>
+                        <div class="profile-label">Должность</div>
+                        <div class="profile-value">Инженер-конструктор</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_5.png')"></div>
+                        <div class="profile-label">Отдел</div>
+                        <div class="profile-value">Конструкторское бюро</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_6.png')"></div>
+                        <div class="profile-label">Организация</div>
+                        <div class="profile-value">ОКБ "АКС"</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_7.png')"></div>
+                        <div class="profile-label">Размещение</div>
+                        <div class="profile-value">Корпус 1, кабинет 234</div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_8.png')"></div>
+                        <div class="profile-label">Псевдоним</div>
+                        <div class="profile-value">Иван</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        // Скрываем все разделы
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        // Показываем выбранный раздел
+        document.getElementById(sectionId).classList.add('active');
+        
+        // Обновляем активную кнопку в навигации
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        event.currentTarget.classList.add('active');
+    }
+</script>
+</body>
+</html>
