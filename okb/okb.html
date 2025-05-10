@@ -6,6 +6,28 @@
 	<meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8'>
 	<title>news app</title>
 	<link rel=stylesheet href=okb.css>
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- Leaflet Routing Machine JS -->
+    <script
+    src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js">
+    </script>
+
 </head>
 <body>
 <div class=app>
@@ -27,7 +49,7 @@
 	<div class=navbar>
 		<button class=home onclick=moveTo(1)></button>
 		<button class=docs onclick=moveTo(2)></button>
-		<button class=map  onclick=			></button>
+		<button class=map  onclick=moveTo(3)></button>
 		<button class=dir  onclick=moveTo(4)></button>
 		<button class=prof onclick=moveTo(5)></button>
 	</div>
@@ -59,7 +81,23 @@
 				<h2>Раздел 2</h2>
 			</div>
 		</div>
-		<div class=map></div>
+		<div class="map">
+			<div id="office-map" style="width: 100%; height: 50vh; border-radius: 0.75em; margin-bottom: 0.75em;"></div>
+
+			<input id="start-point"
+				placeholder="Старт (lat,lng)"
+				value="56.726805, 37.146724"
+				style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
+
+			<input id="end-point"
+				placeholder="Финиш (lat,lng)"
+				value="56.753676, 37.165452"
+				style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
+
+			<button class="primary"
+				onclick="buildRoute()"
+				style="font-size: 0.85em; padding: 0.5em 1em;">Построить маршрут</button>
+			</div>
 		<div class=dir>
 			<input placeholder='Поиск по справочнику' />
 		</div>
@@ -75,6 +113,7 @@
 		</div>
 	</div>
 	<script type=module src='scripts/okb.js'></script>
+	<script type=module src='scripts/map.js'></script>
 </div>
 </body>
 </html>
