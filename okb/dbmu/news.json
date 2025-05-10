@@ -1,0 +1,18 @@
+[
+	{
+		"id": 0,
+		"title": "Тест",
+		"content": "Лорем ипсум",
+		"author_id": 0,
+		"company_id": 0,
+		"created_at": "01.01.1970"
+	},
+	{
+		"id": 1,
+		"title": "Тест2",
+		"content": "Лорем ипсум",
+		"author_id": 0,
+		"company_id": 0,
+		"created_at": "01.01.1970"
+	}
+]

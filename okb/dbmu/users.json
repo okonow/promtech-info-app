@@ -1,0 +1,36 @@
+[
+	{
+		"id": 0,
+		"first_name": "Иван",
+		"last_name": "Иванович",
+		"middle_name": "Иванов",
+		"birth_date": "01.01.1970",
+		"email": "exaple@mail.ru",
+		"password": "qwerty12",
+		"phone_number": "555-0880",
+		"position_id": 0,
+		"company_id": 0,
+		"department_id": 0,
+		"role_id": 0,
+		"created_at": "04.05.2025",
+		"updated_at": "",
+		"phone": "+71234567890"
+	},
+	{
+		"id": 1,
+		"first_name": "Петр",
+		"last_name": "Петрович",
+		"middle_name": "Петров",
+		"birth_date": "01.01.1970",
+		"email": "3x4p13@mail.ru",
+		"password": "qwerty13",
+		"phone_number": "444-0880",
+		"position_id": 0,
+		"company_id": 0,
+		"department_id": 0,
+		"role_id": 0,
+		"created_at": "05.05.2025",
+		"updated_at": "",
+		"phone": "+71234567891"
+	}
+]
