@@ -24,3 +24,6 @@ function buildRoute() {
     routeWhileDragging: false
     }).addTo(map);
 }
+
+window.initMap = initMap;
+window.buildRoute = buildRoute;
