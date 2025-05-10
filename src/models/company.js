@@ -20,6 +20,7 @@ class Company extends Model {
     }
 
     static associate(models) {
+        this.hasMany(models.Department, { foreignKey: 'company_id' });
         this.hasMany(models.User, { foreignKey: 'company_id' });
         this.hasMany(models.News, { foreignKey: 'company_id' });
     }
