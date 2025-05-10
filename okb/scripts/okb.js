@@ -39,10 +39,19 @@ function moveTo(section) {
 		case 4: postfix = 'dir'; break;
 		case 5: postfix = 'prof'; break;
 	}
+
 	document.querySelector('.navbar').style.background = `url('assets/navbar/navbar_${postfix}.png')`;
 	document.querySelector('.navbar').style.backgroundSize = 'contain';
-	for (let scr of document.querySelectorAll('.scroll-wrapper > div')) scr.style.display = 'none';
+
+	for (let scr of document.querySelectorAll('.scroll-wrapper > div')) {
+		scr.style.display = 'none';
+	}
 	document.querySelector(`div.${postfix}`).style.display = 'block';
+
+	if (postfix === 'map' && !window.mapInitialized) {
+		initMap();
+		window.mapInitialized = true;
+	}
 }
 window.moveTo = moveTo;
 window.openClose = openClose;
