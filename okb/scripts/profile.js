@@ -1,19 +1,21 @@
 export async function showProfile(id) {
-	let users = await fetch('dbmu/users.json').then(res => res.json());
-	let u;
-	for (let user of users) {
-		if (user.id == id) {
-			u = user;
-			break;
-		}
-	}
-	let profEntries = document.querySelectorAll('div.prof p');
-	profEntries[0].innerText = `${u.middle_name} ${u.first_name} ${u.last_name}`;
-	profEntries[1].innerText = `${u.phone_number}`;
-	profEntries[2].innerText = `${u.email}`;
-	profEntries[3].innerText = `${u.position_id}`;
-	profEntries[4].innerText = `${u.department_id}`;
-	profEntries[5].innerText = `${u.company_id}`;
-	//prof-entry[6].innerText = `${}`;
-	//prof-entry[7].innerText = `${}`;
+    let users = await fetch('dbmu/users.json').then(res => res.json());
+    let u;
+    for (let user of users) {
+        if (user.id == id) {
+            u = user;
+            break;
+        }
+    }
+
+    // Привязка данных к элементам по ID
+    document.getElementById('full-name').innerText = `${u.middle_name} ${u.first_name} ${u.last_name}`;
+    document.getElementById('phone-number').innerText = `${u.phone_number}`;
+    document.getElementById('email').innerText = `${u.email}`;
+    document.getElementById('position').innerText = `${u.position_id}`;
+    document.getElementById('department').innerText = `${u.department_id}`;
+    document.getElementById('company').innerText = `${u.company_id}`;
+    // Введите дополнительные поля для размещения и псевдонима, если они присутствуют в данных
+    document.getElementById('location').innerText = `${u.location}`;
+    document.getElementById('nickname').innerText = `${u.nickname}`;
 }

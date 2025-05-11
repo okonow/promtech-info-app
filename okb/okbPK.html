@@ -30,6 +30,27 @@
 <div class="app-desktop">
     <div class="sidebar">
         <div class="logo">OKB АКС</div>
+        <div class="login-curtain">
+            <div class="image"></div>
+                <form class="login">
+                    <h2 class="auth-title">Вход в систему</h2>
+                    <label for=login></label><br>
+                    <label for="login">Телефон или корпоративный логин</label>
+                    
+                    <input name="login" placeholder="Введите логин" type="text">
+                    
+                    <label for="password">Пароль</label>
+                    <input name="password" placeholder="••••••••" type="password">
+                    
+                    <p class="for-errors"></p>
+                    
+                    <button type="submit" class="primary">Войти</button>
+                    
+                    <div class="login-footer">
+                        <a href="#">Забыли пароль?</a> • <a href="#">Помощь при входе</a>
+                    </div>
+                </form>
+        </div>
         <nav class="main-nav">
             <button class="nav-btn active" onclick="showSection('home')">
                 <span class="icon home"></span>
@@ -148,13 +169,17 @@
                     <div class="map-controls">
                         <h3>Построить маршрут</h3>
                         <label>Откуда:</label>
-                        <select id="start-point">
-                        <option value="56.726805, 37.146724">ул. Энтузиастов 21</option>
-                        </select>
+                        <input id="start-point"
+                            type="text"
+                            placeholder="Старт (lat,lng)"
+                            value="56.726805,37.146724"
+                            style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
                         <label>Куда:</label>
-                        <select id="end-point">
-                        <option value="56.753676, 37.165452">ул. Программистов 4</option>
-                        </select>
+                        <input id="end-point"
+                            type="text"
+                            placeholder="Финиш (lat,lng)"
+                            value="56.753676,37.165452"
+                            style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
                         <button onclick="buildRoute()">Построить маршрут</button>
                     </div>
                 </div>
@@ -189,42 +214,42 @@
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_1.png')"></div>
                         <div class="profile-label">ФИО</div>
-                        <div class="profile-value">Иванов Иван Иванович</div>
+                        <div class="profile-value" id="full-name"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_2.png')"></div>
                         <div class="profile-label">Служебный телефон</div>
-                        <div class="profile-value">+7 (123) 456-78-90</div>
+                        <div class="profile-value" id="phone-number"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_3.png')"></div>
                         <div class="profile-label">Почта</div>
-                        <div class="profile-value">ivanov@okb-aks.ru</div>
+                        <div class="profile-value" id="email"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_4.png')"></div>
                         <div class="profile-label">Должность</div>
-                        <div class="profile-value">Инженер-конструктор</div>
+                        <div class="profile-value" id="position"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_5.png')"></div>
                         <div class="profile-label">Отдел</div>
-                        <div class="profile-value">Конструкторское бюро</div>
+                        <div class="profile-value" id="department"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_6.png')"></div>
                         <div class="profile-label">Организация</div>
-                        <div class="profile-value">ОКБ "АКС"</div>
+                        <div class="profile-value" id="company"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_7.png')"></div>
                         <div class="profile-label">Размещение</div>
-                        <div class="profile-value">Корпус 1, кабинет 234</div>
+                        <div class="profile-value" id="location"></div> <!-- добавлен id для привязки -->
                     </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_8.png')"></div>
                         <div class="profile-label">Псевдоним</div>
-                        <div class="profile-value">Иван</div>
+                        <div class="profile-value" id="nickname"></div> <!-- добавлен id для привязки -->
                     </div>
                 </div>
             </div>
@@ -257,6 +282,7 @@
 </script>
 
 <script src="scripts/map.js"></script>
+<script type = module src='scripts/okb.js'></script>
 
 </body>
 </html>

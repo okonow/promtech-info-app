@@ -145,7 +145,7 @@ body {
 .notif-btn {
     width: 24px;
     height: 24px;
-    background: url('assets/notif-icon.png') center no-repeat;
+    background: url('assets/notif/notif_icon.png') center no-repeat;
     background-size: contain;
     border: none;
     cursor: pointer;
@@ -510,4 +510,117 @@ body {
 
 .map-controls button:hover {
     background-color: #005fa3;
+}
+
+
+/* Стили для занавеса авторизации (ПК версия) */
+.login-curtain {
+    background: #f5f7fa;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('assets/auth-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.login-curtain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(2px);
+}
+
+.login-curtain > .image {
+    position: absolute;
+    width: 300px;
+    height: 115px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url('assets/logo-auth.png') no-repeat center;
+    background-size: contain;
+}
+
+form.login {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+form.login label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+form.login input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.3s;
+}
+
+form.login input:focus {
+    outline: none;
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+form.login input::placeholder {
+    color: #a0aec0;
+}
+
+form.login .for-errors {
+    color: #e53e3e;
+    font-size: 14px;
+    margin: -10px 0 15px;
+    min-height: 20px;
+}
+
+form.login button.primary {
+    width: 100%;
+    padding: 14px;
+    background: #ce3e31;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form.login button.primary:hover {
+    background: #cbb5b3;
+}
+
+/* Дополнительные элементы для ПК версии */
+.login-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #cbb5b3;
+}
+
+.login-footer a {
+    color: #cbb5b3;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
 }

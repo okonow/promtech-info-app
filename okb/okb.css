@@ -265,27 +265,27 @@ div.prof {
 	padding: 0 0 0 1em;
 	margin: 0 0 0.35em;
 }
-#p1 {
+#full-name {
 	background: url('assets/profile_icons/ico_1.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p2 {
+#phone-number {
 	background: url('assets/profile_icons/ico_2.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p3 {
+#email {
 	background: url('assets/profile_icons/ico_3.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p4 {
+#position {
 	background: url('assets/profile_icons/ico_4.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p5 {
+#department {
 	background: url('assets/profile_icons/ico_5.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p6 {
+#company {
 	background: url('assets/profile_icons/ico_6.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p7 {
+#location {
 	background: url('assets/profile_icons/ico_7.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
-#p8 {
+#nickname {
 	background: url('assets/profile_icons/ico_8.png') 0% 50% / 0.9em 0.9em no-repeat;
 }
