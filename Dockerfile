@@ -1,36 +1,33 @@
 # Build stage
 FROM oven/bun:alpine AS builder
 
-# Установка рабочей директории
 WORKDIR /app
 
-# Копируем только файлы, необходимые для установки зависимостей
+# Copy package files
 COPY package.json bun.lock ./
 
-# Установка зависимостей
+# Install dependencies
 RUN bun install --frozen-lockfile
+
+# Copy all source files
+COPY . .
 
 # Production stage
 FROM oven/bun:alpine
 
-# Установка curl для healthcheck
 RUN apk add --no-cache curl
 
 WORKDIR /app
 
-# Копируем зависимости из builder stage
-COPY --from=builder /app/node_modules ./node_modules
+# Copy all files from builder including node_modules
+COPY --from=builder /app ./
 
-# Копируем исходный код
-COPY src ./src
-COPY package.json bun.lock ./
-
-# Создаем непривилегированного пользователя чтобы злоумышленник не смог получить полный доступ к контейнеру
+# Create non-privileged user
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 RUN chown -R appuser:appgroup /app
 USER appuser
 
-# Определяем переменные окружения
+# Environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
 
@@ -38,5 +35,5 @@ ENV PORT=3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:${PORT}/health || exit 1
 
-# Запуск приложения
-CMD ["bun", "src/index.js"] 
+# Run the application
+CMD ["bun", "src/index.js"]
