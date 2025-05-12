@@ -8,7 +8,7 @@ function createNewsPost(newsData) {
 			<p>${newsData.created_at}</p>
 		</div>
 	</div>
-	<div class=image></div>
+	<div class=image style="background-image: url('${newsData.image_url}'); background-size: cover; background-position: center;"></div>
 </div>
 	`;
 }

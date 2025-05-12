@@ -27,7 +27,7 @@ function showContactDetail(contactId) {
 	document.getElementById('detail-company').textContent = contact.company;
 	document.getElementById('detail-location').textContent = contact.location;
 	document.getElementById('detail-nickname').textContent = contact.nickname;
-
+	
 	document.querySelector('.contact-detail').style.display = 'flex';
 }
 

@@ -8,7 +8,8 @@ export const contactsData = [
         department: 'Инженерный отдел',
         company: 'ОКБ АКС',
         location: 'Корпус А, этаж 3, кабинет 305',
-        nickname: 'ivanovii'
+        nickname: 'ivanovii',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ export const contactsData = [
         department: 'Отдел разработки',
         company: 'ОКБ АКС',
         location: 'Корпус Б, этаж 2, кабинет 215',
-        nickname: 'petrovpp'
+        nickname: 'petrovpp',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 3,
@@ -30,7 +32,8 @@ export const contactsData = [
         department: 'HR-отдел',
         company: 'ОКБ АКС',
         location: 'Корпус А, этаж 1, кабинет 112',
-        nickname: 'sidorovaav'
+        nickname: 'sidorovaav',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 4,
@@ -41,7 +44,8 @@ export const contactsData = [
         department: 'IT-отдел',
         company: 'ОКБ АКС',
         location: 'Корпус В, этаж 1, кабинет 105',
-        nickname: 'kozlovad'
+        nickname: 'kozlovad',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 5,
@@ -52,7 +56,8 @@ export const contactsData = [
         department: 'Бухгалтерия',
         company: 'ОКБ АКС',
         location: 'Корпус А, этаж 2, кабинет 207',
-        nickname: 'novikovaes'
+        nickname: 'novikovaes',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 6,
@@ -63,7 +68,8 @@ export const contactsData = [
         department: 'Проектный отдел',
         company: 'ОКБ АКС',
         location: 'Корпус Б, этаж 3, кабинет 315',
-        nickname: 'sokolovda'
+        nickname: 'sokolovda',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 7,
@@ -74,7 +80,8 @@ export const contactsData = [
         department: 'Отдел маркетинга',
         company: 'ОКБ АКС',
         location: 'Корпус А, этаж 2, кабинет 210',
-        nickname: 'kuznetsovaoi'
+        nickname: 'kuznetsovaoi',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 8,
@@ -85,7 +92,8 @@ export const contactsData = [
         department: 'Аналитический отдел',
         company: 'ОКБ АКС',
         location: 'Корпус В, этаж 2, кабинет 205',
-        nickname: 'smirnoviv'
+        nickname: 'smirnoviv',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 9,
@@ -96,7 +104,8 @@ export const contactsData = [
         department: 'Дизайн-отдел',
         company: 'ОКБ АКС',
         location: 'Корпус Б, этаж 1, кабинет 115',
-        nickname: 'vasilievama'
+        nickname: 'vasilievama',
+        photoUrl: 'assets/man1.png'
     },
     {
         id: 10,
@@ -107,6 +116,7 @@ export const contactsData = [
         department: 'Финансовый отдел',
         company: 'ОКБ АКС',
         location: 'Корпус А, этаж 2, кабинет 208',
-        nickname: 'morozovas'
+        nickname: 'morozovas',
+        photoUrl: 'assets/man1.png'
     },
 ]; 
