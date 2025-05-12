@@ -101,7 +101,56 @@
 		</div>
 		
 		<div class=dir>
-			<input placeholder='Поиск по справочнику' />
+			<div class="dir-search">
+				<div class="search-icon"></div>
+				<input placeholder='Поиск по справочнику' />
+			</div>
+			<div class="contact-list">
+			</div>
+			
+			<div class="contact-detail" style="display: none;">
+				<div class="contact-detail-header">
+					<button class="back-button"></button>
+					<h2>Контакт</h2>
+				</div>
+				<div class="contact-detail-content">
+					<div class="contact-info">
+						<div class="contact-info-item">
+							<div class="contact-icon user-icon"></div>
+							<span id="detail-name">Фамилия Имя Отчество</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon phone-icon"></div>
+							<span id="detail-phone">Служебный телефон</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon mail-icon"></div>
+							<span id="detail-email">Почта</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon briefcase-icon"></div>
+							<span id="detail-position">Должность</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon folder-icon"></div>
+							<span id="detail-department">Отдел</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon globe-icon"></div>
+							<span id="detail-company">Организация</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon pin-icon"></div>
+							<span id="detail-location">Размещение</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon message-icon"></div>
+							<span id="detail-nickname">Псевдоним</span>
+						</div>
+					</div>
+					<div class="contact-photo"></div>
+				</div>
+			</div>
 		</div>
 		<div class="prof">
 			<p class="prof-entry" id="full-name">ФИО</p>
@@ -116,6 +165,11 @@
 	</div>
 	<script type=module src='scripts/okb.js'></script>
 	<script type=module src='scripts/map.js'></script>
+	<script type=module src='scripts/hrServices.js'></script>
+	<script type=module src='scripts/sportsServices.js'></script>
+	<script type=module src='scripts/smallPopups.js'></script>
+	<script src='scripts/quickQuestion.js'></script>
+	<script type=module src='scripts/directory.js'></script>
 </div>
 </body>
 </html>

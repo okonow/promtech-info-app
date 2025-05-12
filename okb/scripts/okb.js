@@ -1,7 +1,7 @@
 import { openClose } from './notifications.js';
 import { showNews } from './home.js';
 import { showDocs } from './documents.js';
-import { showContacts } from './directory.js';
+import { initDirectory } from './directory.js';
 import { showProfile } from './profile.js';
 
 let userIdOnPage = 0;
@@ -60,6 +60,7 @@ addEventListener('load', () => {
 	showNews();
 	showDocs();
 	showProfile(userIdOnPage);
+	
 });
 
 document.querySelector('form').onsubmit = (e) => {

@@ -1,0 +1,113 @@
+
+export const contactsData = [
+    {
+        id: 1,
+        name: 'Иванов Иван Иванович',
+        phone: '+7 (123) 456-78-90',
+        email: 'ivanov@okb-acs.ru',
+        position: 'Главный инженер',
+        department: 'Инженерный отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус А, этаж 3, кабинет 305',
+        nickname: 'ivanovii'
+    },
+    {
+        id: 2,
+        name: 'Петров Петр Петрович',
+        phone: '+7 (123) 456-78-91',
+        email: 'petrov@okb-acs.ru',
+        position: 'Ведущий разработчик',
+        department: 'Отдел разработки',
+        company: 'ОКБ АКС',
+        location: 'Корпус Б, этаж 2, кабинет 215',
+        nickname: 'petrovpp'
+    },
+    {
+        id: 3,
+        name: 'Сидорова Анна Владимировна',
+        phone: '+7 (123) 456-78-92',
+        email: 'sidorova@okb-acs.ru',
+        position: 'HR-менеджер',
+        department: 'HR-отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус А, этаж 1, кабинет 112',
+        nickname: 'sidorovaav'
+    },
+    {
+        id: 4,
+        name: 'Козлов Алексей Дмитриевич',
+        phone: '+7 (123) 456-78-93',
+        email: 'kozlov@okb-acs.ru',
+        position: 'Системный администратор',
+        department: 'IT-отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус В, этаж 1, кабинет 105',
+        nickname: 'kozlovad'
+    },
+    {
+        id: 5,
+        name: 'Новикова Елена Сергеевна',
+        phone: '+7 (123) 456-78-94',
+        email: 'novikova@okb-acs.ru',
+        position: 'Бухгалтер',
+        department: 'Бухгалтерия',
+        company: 'ОКБ АКС',
+        location: 'Корпус А, этаж 2, кабинет 207',
+        nickname: 'novikovaes'
+    },
+    {
+        id: 6,
+        name: 'Соколов Дмитрий Александрович',
+        phone: '+7 (123) 456-78-95',
+        email: 'sokolov@okb-acs.ru',
+        position: 'Руководитель проекта',
+        department: 'Проектный отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус Б, этаж 3, кабинет 315',
+        nickname: 'sokolovda'
+    },
+    {
+        id: 7,
+        name: 'Кузнецова Ольга Игоревна',
+        phone: '+7 (123) 456-78-96',
+        email: 'kuznetsova@okb-acs.ru',
+        position: 'Маркетолог',
+        department: 'Отдел маркетинга',
+        company: 'ОКБ АКС',
+        location: 'Корпус А, этаж 2, кабинет 210',
+        nickname: 'kuznetsovaoi'
+    },
+    {
+        id: 8,
+        name: 'Смирнов Игорь Владимирович',
+        phone: '+7 (123) 456-78-97',
+        email: 'smirnov@okb-acs.ru',
+        position: 'Аналитик',
+        department: 'Аналитический отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус В, этаж 2, кабинет 205',
+        nickname: 'smirnoviv'
+    },
+    {
+        id: 9,
+        name: 'Васильева Мария Алексеевна',
+        phone: '+7 (123) 456-78-98',
+        email: 'vasilieva@okb-acs.ru',
+        position: 'Дизайнер',
+        department: 'Дизайн-отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус Б, этаж 1, кабинет 115',
+        nickname: 'vasilievama'
+    },
+    {
+        id: 10,
+        name: 'Морозов Артем Сергеевич',
+        phone: '+7 (123) 456-78-99',
+        email: 'morozov@okb-acs.ru',
+        position: 'Финансовый аналитик',
+        department: 'Финансовый отдел',
+        company: 'ОКБ АКС',
+        location: 'Корпус А, этаж 2, кабинет 208',
+        nickname: 'morozovas'
+    },
+]; 
