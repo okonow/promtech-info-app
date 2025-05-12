@@ -41,7 +41,6 @@ services:
       - PORT=3000
     volumes:
       - ./src:/app/src
-      - ./node_modules:/app/node_modules
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:3000/health || exit 1"]
       interval: 30s

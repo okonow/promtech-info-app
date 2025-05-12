@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json bun.lock ./
 
 # Install dependencies
-RUN echo "Installing dependencies..." && bun install --frozen-lockfile || echo "bun install failed"
+RUN echo "Installing dependencies..." && bun install --frozen-lockfile
 RUN echo "Installed packages:" && bun pm ls
 RUN ls -la node_modules
 
