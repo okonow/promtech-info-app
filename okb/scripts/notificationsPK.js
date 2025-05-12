@@ -1,8 +1,3 @@
-/**
- * Notification functionality for PC version
- */
-
-// Sample notification data
 const sampleNotifications = [
     {
         id: 1,
@@ -21,18 +16,14 @@ const sampleNotifications = [
     }
 ];
 
-/**
- * Toggle notification panel visibility
- */
 function toggleNotifications() {
     const notifPanel = document.querySelector('.notif-panel');
     notifPanel.classList.toggle('active');
 }
 
 /**
- * Create notification HTML
- * @param {Object} notif - Notification data object
- * @returns {String} HTML string for notification
+ * @param {Object} notif
+ * @returns {String}
  */
 function createNotification(notif) {
     return `
@@ -43,32 +34,22 @@ function createNotification(notif) {
     `;
 }
 
-/**
- * Load notifications into the panel
- */
 function loadNotifications() {
     const container = document.querySelector('.notif-container');
     
-    // Clear existing notifications
     container.innerHTML = '';
     
-    // Add notifications
     sampleNotifications.forEach(notif => {
         container.innerHTML += createNotification(notif);
     });
     
-    // Update badge count
     updateNotificationBadge();
 }
 
-/**
- * Update notification badge count
- */
 function updateNotificationBadge() {
     const badge = document.querySelector('.notif-badge');
     badge.textContent = sampleNotifications.length;
     
-    // Hide badge if no notifications
     if (sampleNotifications.length === 0) {
         badge.style.display = 'none';
     } else {
@@ -76,11 +57,9 @@ function updateNotificationBadge() {
     }
 }
 
-// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     loadNotifications();
     
-    // Set up event listeners
     const notifBtn = document.querySelector('.notif-btn');
     const closeBtn = document.querySelector('.notif-close-btn');
     
@@ -93,5 +72,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Export functions to window object for inline event handlers if needed
 window.toggleNotifications = toggleNotifications; 
