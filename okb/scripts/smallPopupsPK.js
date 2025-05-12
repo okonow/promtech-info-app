@@ -9,11 +9,11 @@ const popupContents = {
     },
     training: {
         title: 'Обучение и развитие',
-        description: 'Корпоративные тренинги, программы развития компетенций, онлайн-курсы и библиотеки, наставничество'
+        description: 'Корпоративные программы обучения, тренинги, курсы повышения квалификации, профессиональное развитие'
     },
     safety: {
         title: 'Охрана труда',
-        description: 'Техника безопасности, регламенты и инструкции, экологическая безопасность, пожарная безопасность'
+        description: 'Техника безопасности, инструктажи, нормативы, сертификации, специальная оценка условий труда'
     }
 };
 
@@ -64,20 +64,6 @@ function hideCardPopup() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const trainingCard = document.querySelector('.card:nth-child(2)');
-    if (trainingCard) {
-        trainingCard.addEventListener('click', () => {
-            showCardPopup('training');
-        });
-    }
-    
-    const safetyCard = document.querySelector('.card:nth-child(3)');
-    if (safetyCard) {
-        safetyCard.addEventListener('click', () => {
-            showCardPopup('safety');
-        });
-    }
-    
     const itCard = document.querySelector('.card:nth-child(4)');
     if (itCard) {
         itCard.addEventListener('click', () => {
@@ -89,6 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (socialCard) {
         socialCard.addEventListener('click', () => {
             showCardPopup('social');
+        });
+    }
+    
+    const trainingCard = document.querySelector('.card:nth-child(2)');
+    if (trainingCard) {
+        trainingCard.addEventListener('click', () => {
+            showCardPopup('training');
+        });
+    }
+    
+    const safetyCard = document.querySelector('.card:nth-child(3)');
+    if (safetyCard) {
+        safetyCard.addEventListener('click', () => {
+            showCardPopup('safety');
         });
     }
 });
