@@ -15,8 +15,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "seed": "sequelize db:seed:all",
-    "start": "bun src/index.js"
+    "seed": "npx sequelize db:seed:all",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "dotenv": "^16.5.0",

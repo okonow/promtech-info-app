@@ -1,21 +1,25 @@
 # Build stage
-FROM oven/bun:alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
 # Copy package files
-COPY package.json bun.lock ./
+COPY package.json package-lock.json ./
 
 # Install dependencies
-RUN echo "Installing dependencies..." && bun install --frozen-lockfile || echo "bun install failed"
-RUN echo "Installed packages:" && bun pm ls
+RUN echo "Installing dependencies..." && npm ci || echo "npm ci failed"
+RUN echo "Installed packages:" && npm list --depth=0
 RUN ls -la node_modules
 
 # Copy all source files
 COPY . .
 
+# Build the application (if needed, e.g., for frontend)
+# Example for a React or similar build:
+# RUN npm run build
+
 # Production stage
-FROM oven/bun:alpine
+FROM node:20-alpine
 
 RUN apk add --no-cache curl
 
@@ -38,4 +42,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:${PORT}/health || exit 1
 
 # Run the application
-CMD ["bun", "src/index.js"]
+CMD ["node", "src/index.js"]
