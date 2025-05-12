@@ -5,7 +5,7 @@ FROM oven/bun:alpine AS builder
 WORKDIR /app
 
 # Копируем только файлы, необходимые для установки зависимостей
-COPY package.json bun.lockb ./
+COPY package.json bun.lock ./
 
 # Установка зависимостей
 RUN bun install --frozen-lockfile
@@ -23,7 +23,7 @@ COPY --from=builder /app/node_modules ./node_modules
 
 # Копируем исходный код
 COPY src ./src
-COPY package.json bun.lockb ./
+COPY package.json bun.lock ./
 
 # Создаем непривилегированного пользователя чтобы злоумышленник не смог получить полный доступ к контейнеру
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
