@@ -3,10 +3,6 @@ function toggleQuickQuestion() {
     quickPanel.classList.toggle('active');
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 function createQuickQuestionPanel() {
     const quickPanel = document.createElement('div');
     quickPanel.className = 'quick-panel';
@@ -99,10 +95,6 @@ function createQuickQuestionPanel() {
         </div>
     `;
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const appContainer = document.querySelector('.app');
     if (appContainer) {
         appContainer.appendChild(quickPanel);
@@ -110,10 +102,6 @@ function createQuickQuestionPanel() {
         document.body.appendChild(quickPanel);
     }
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     let startY = 0;
     quickPanel.addEventListener('touchstart', function(e) {
         startY = e.touches[0].clientY;
@@ -123,13 +111,7 @@ function createQuickQuestionPanel() {
         let moveY = e.touches[0].clientY;
         let diff = moveY - startY;
         
-<<<<<<< HEAD
-        
         if (diff > 0) {
-            
-=======
-        if (diff > 0) {
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
             let translateY = Math.min(diff, 100);
             quickPanel.style.transform = `translateY(${translateY}px)`;
             e.preventDefault();
@@ -137,41 +119,20 @@ function createQuickQuestionPanel() {
     }, false);
     
     quickPanel.addEventListener('touchend', function(e) {
-<<<<<<< HEAD
-        
         if (parseInt(quickPanel.style.transform.replace('translateY(', '')) > 80) {
             toggleQuickQuestion();
         }
-        
-=======
-        if (parseInt(quickPanel.style.transform.replace('translateY(', '')) > 80) {
-            toggleQuickQuestion();
-        }
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
         quickPanel.style.transform = '';
     }, false);
 }
 
-<<<<<<< HEAD
-
-document.addEventListener('DOMContentLoaded', () => {
-    
-    createQuickQuestionPanel();
-    
-    
-=======
 document.addEventListener('DOMContentLoaded', () => {
     createQuickQuestionPanel();
     
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const quickBtn = document.querySelector('button.muted');
     if (quickBtn) {
         quickBtn.addEventListener('click', toggleQuickQuestion);
     }
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 window.toggleQuickQuestion = toggleQuickQuestion;

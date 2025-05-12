@@ -72,8 +72,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-<<<<<<< HEAD
 window.toggleNotifications = toggleNotifications; 
-=======
-window.toggleNotifications = toggleNotifications; 
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9

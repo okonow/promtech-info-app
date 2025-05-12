@@ -1,4 +1,3 @@
-
 export const contactsData = [
     {
         id: 1,

@@ -60,7 +60,6 @@ addEventListener('load', () => {
 	showNews();
 	showDocs();
 	showProfile(userIdOnPage);
-	
 });
 
 document.querySelector('form').onsubmit = (e) => {

@@ -1,6 +1,4 @@
-
 import { contactsData } from './directoryData.js';
-
 
 function createContactItem(contact) {
     return `
@@ -11,11 +9,9 @@ function createContactItem(contact) {
     `;
 }
 
-
 function showContactDetail(contactId) {
     const contact = contactsData.find(c => c.id === contactId);
     if (!contact) return;
-    
     
     document.getElementById('detail-name-pk').textContent = contact.name;
     document.getElementById('detail-phone-pk').textContent = contact.phone;
@@ -26,15 +22,12 @@ function showContactDetail(contactId) {
     document.getElementById('detail-location-pk').textContent = contact.location;
     document.getElementById('detail-nickname-pk').textContent = contact.nickname;
     
-    
     document.querySelector('.contact-detail-panel').style.display = 'block';
 }
-
 
 function hideContactDetail() {
     document.querySelector('.contact-detail-panel').style.display = 'none';
 }
-
 
 function filterContacts(query) {
     if (!query) {
@@ -51,7 +44,6 @@ function filterContacts(query) {
     );
 }
 
-
 function renderContactList(contacts) {
     const contactList = document.querySelector('#dir .contact-list');
     contactList.innerHTML = '';
@@ -60,12 +52,10 @@ function renderContactList(contacts) {
         contactList.insertAdjacentHTML('beforeend', createContactItem(contact));
     });
     
-    
     document.querySelectorAll('#dir .contact-item').forEach(item => {
         item.addEventListener('click', () => {
             const contactId = parseInt(item.dataset.id);
             showContactDetail(contactId);
-            
             
             document.querySelectorAll('#dir .contact-item').forEach(c => {
                 c.classList.remove('selected');
@@ -75,11 +65,8 @@ function renderContactList(contacts) {
     });
 }
 
-
 function initDirectory() {
-    
     renderContactList(contactsData);
-    
     
     const searchInput = document.querySelector('#dir .dir-search input');
     searchInput.addEventListener('input', (e) => {
@@ -88,14 +75,12 @@ function initDirectory() {
         renderContactList(filteredContacts);
     });
     
-    
     const backButton = document.querySelector('#dir .back-button');
     backButton.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
             hideContactDetail();
         }
     });
-    
     
     if (window.innerWidth > 768 && contactsData.length > 0) {
         showContactDetail(contactsData[0].id);
@@ -104,7 +89,6 @@ function initDirectory() {
             firstContactItem.classList.add('selected');
         }
     }
-    
     
     window.addEventListener('resize', () => {
         if (window.innerWidth <= 768) {
@@ -122,10 +106,8 @@ function initDirectory() {
     });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     initDirectory();
 });
-
 
 export { filterContacts, renderContactList, showContactDetail, hideContactDetail }; 

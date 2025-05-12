@@ -3,7 +3,6 @@ function toggleHrServices() {
     hrPanel.classList.toggle('active');
 }
 
-
 function createHrServicesPanel() {
     const hrPanel = document.createElement('div');
     hrPanel.className = 'hr-panel';
@@ -67,17 +66,13 @@ function createHrServicesPanel() {
     document.body.appendChild(hrPanel);
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    
     createHrServicesPanel();
-    
     
     const hrCard = document.querySelector('.card:nth-child(1)');
     if (hrCard) {
         hrCard.addEventListener('click', toggleHrServices);
     }
 });
-
 
 window.toggleHrServices = toggleHrServices; 

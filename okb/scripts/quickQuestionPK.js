@@ -2,10 +2,6 @@ function toggleQuickQuestionPK() {
     const quickPanel = document.querySelector('.quick-panel-pk');
     quickPanel.classList.toggle('active');
     
-<<<<<<< HEAD
-    
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const backdrop = document.querySelector('.quick-panel-backdrop');
     if (backdrop) {
         backdrop.classList.toggle('active');
@@ -14,10 +10,6 @@ function toggleQuickQuestionPK() {
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 function createBackdrop() {
     const backdrop = document.createElement('div');
     backdrop.className = 'quick-panel-backdrop active';
@@ -29,10 +21,6 @@ function createBackdrop() {
     document.body.appendChild(backdrop);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 function createQuickQuestionPanelPK() {
     const quickPanel = document.createElement('div');
     quickPanel.className = 'quick-panel-pk';
@@ -124,34 +112,16 @@ function createQuickQuestionPanelPK() {
         </div>
     `;
     
-<<<<<<< HEAD
-    
-    document.body.appendChild(quickPanel);
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    
-    createQuickQuestionPanelPK();
-    
-    
-=======
     document.body.appendChild(quickPanel);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     createQuickQuestionPanelPK();
     
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const quickBtn = document.querySelector('.btn.btn-muted');
     if (quickBtn) {
         quickBtn.addEventListener('click', toggleQuickQuestionPK);
     }
 });
 
-<<<<<<< HEAD
-
 window.toggleQuickQuestionPK = toggleQuickQuestionPK; 
-=======
-window.toggleQuickQuestionPK = toggleQuickQuestionPK; 
->>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9

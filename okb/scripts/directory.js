@@ -1,4 +1,3 @@
-
 import { contactsData } from './directoryData.js';
 
 function createContactItem(contact) {
