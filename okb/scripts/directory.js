@@ -28,12 +28,6 @@ function showContactDetail(contactId) {
 	document.getElementById('detail-location').textContent = contact.location;
 	document.getElementById('detail-nickname').textContent = contact.nickname;
 	
-	// Set contact photo if available
-	const contactPhoto = document.querySelector('.contact-photo');
-	if (contactPhoto && contact.photoUrl) {
-		contactPhoto.style.backgroundImage = `url('${contact.photoUrl}')`;
-	}
-
 	document.querySelector('.contact-detail').style.display = 'flex';
 }
 

@@ -7,14 +7,7 @@ import { showProfile } from './profile.js';
 let userIdOnPage = 0;
 
 async function checkLogin() {
-	let users;
-	try {
-		users = await fetch('api/users').then(res => res.json());
-	} catch {
-		// fallback на локальный JSON при оффлайне
-		users = await fetch('dbmu/users.json').then(res => res.json());
-	}
-
+	let users = await fetch('dbmu/users.json').then(res => res.json());
 	let loginField = document.querySelector('input[name=login]');
 	let passwordField = document.querySelector('input[name=password]');
 
@@ -31,13 +24,6 @@ async function checkLogin() {
 			break;
 		}
 	}
-
-	// резервный вход
-	if (loginField.value === '555-0880' && passwordField.value === 'qawsedrftgyh') {
-		foundMatch = true;
-		userIdOnPage = -1;
-	}
-
 	if (!foundMatch) {
 		document.querySelector('p.for-errors').innerText = 'Неверный логин или пароль';
 		return;
@@ -68,16 +54,7 @@ function moveTo(section) {
 		initMap();
 		window.mapInitialized = true;
 	}
-
-	if (postfix === 'dir') {
-		initDirectory(); // инициализация каталога при переходе
-	}
-	
-	if (postfix === 'prof') {
-		showProfile(userIdOnPage); // обновление профиля при переходе на вкладку
-	}
 }
-
 window.moveTo = moveTo;
 window.openClose = openClose;
 
@@ -98,4 +75,4 @@ document.querySelector('form').onsubmit = (e) => {
 
 document.querySelector('div.dir > input')?.addEventListener('input', (e) => {
 	showContacts(e.target.value);
-});
+};
