@@ -6,7 +6,7 @@ class NewsRepository {
     async getAllNews(companyId, options = {}) {
         const defaultOptions = {
             where: { company_id: companyId },
-            attributes: ['id', 'title', 'cover_image', 'created_at'],
+            attributes: ['id', 'title', 'cover_image', 'createdAt'],
             include: [
                 {
                     model: this.News.sequelize.models.User,
@@ -18,8 +18,8 @@ class NewsRepository {
                     attributes: ['id', 'name']
                 }
             ],
-            order: [['created_at', 'DESC']]
-        };
+            order: [['createdAt', 'DESC']]
+        }
 
         const finalOptions = { ...defaultOptions, ...options };
         return await this.News.findAll(finalOptions);
@@ -27,7 +27,7 @@ class NewsRepository {
 
     async getNewsById(id) {
         const options = {
-            attributes: ['id', 'title', 'content', 'cover_image', 'created_at'],
+            attributes: ['id', 'title', 'content', 'cover_image', 'createdAt'],
             include: [
                 {
                     model: this.News.sequelize.models.User,

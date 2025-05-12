@@ -5,7 +5,8 @@ import userRouter from './routes/userRoutes.js';
 import newsRouter from './routes/newsRoutes.js';
 import departmentRouter from './routes/departmentRoutes.js';
 import companyRouter from './routes/companyRoutes.js';
-import { userService, departmentService, companyService } from './services/index.js';
+import documentRouter from './routes/documentRoutes.js'
+import { userService, departmentService, companyService, documentService, newsService } from './services/index.js';
 import path from 'path';
 import fs from 'fs';
 
@@ -21,9 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/users', userRouter(userService));
-app.use('/api/news', newsRouter);
+app.use('/api/news', newsRouter(newsService));
 app.use('/api/departments', departmentRouter(departmentService));
 app.use('/api/companies', companyRouter(companyService));
+app.use('/api/documents', documentRouter(documentService));
 
 // Health check endpoint
 app.get('/health', async (req, res) => {
@@ -66,10 +68,10 @@ const start = async () => {
         console.log('Database synchronized');
 
         // Add data to DB
-        const dbsqlFilePath = path.join(__dirname, 'db.sql');
-        const sqlScript = fs.readFileSync(dbsqlFilePath, 'utf8');
-        const [results, metadata] = await sequelize.query(sqlScript);
-        console.log(results);
+        // const dbsqlFilePath = path.join(__dirname, 'db.sql');
+        // const sqlScript = fs.readFileSync(dbsqlFilePath, 'utf8');
+        // const [results, metadata] = await sequelize.query(sqlScript);
+        // console.log(results);
 
         // Start server
         app.listen(port, () => {
