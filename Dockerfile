@@ -8,6 +8,7 @@ COPY package.json bun.lockb ./
 
 # Install dependencies
 RUN bun install --frozen-lockfile
+RUN bun pm ls
 
 # Copy all source files
 COPY . .
