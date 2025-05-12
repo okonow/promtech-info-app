@@ -9,10 +9,16 @@ function createContactItem(contact) {
 	`;
 }
 
+function createContact(contact) {
+	return `
+		<div class="contact" id="c${contact.id}">${contact.middle_name} ${contact.first_name} ${contact.last_name}</div>
+	`;
+}
+
 function showContactDetail(contactId) {
 	const contact = contactsData.find(c => c.id === contactId);
 	if (!contact) return;
-	
+
 	document.getElementById('detail-name').textContent = contact.name;
 	document.getElementById('detail-phone').textContent = contact.phone;
 	document.getElementById('detail-email').textContent = contact.email;
@@ -22,6 +28,12 @@ function showContactDetail(contactId) {
 	document.getElementById('detail-location').textContent = contact.location;
 	document.getElementById('detail-nickname').textContent = contact.nickname;
 	
+	// Set contact photo if available
+	const contactPhoto = document.querySelector('.contact-photo');
+	if (contactPhoto && contact.photoUrl) {
+		contactPhoto.style.backgroundImage = `url('${contact.photoUrl}')`;
+	}
+
 	document.querySelector('.contact-detail').style.display = 'flex';
 }
 
@@ -33,9 +45,9 @@ function filterContacts(query) {
 	if (!query) {
 		return contactsData;
 	}
-	
+
 	query = query.toLowerCase();
-	return contactsData.filter(contact => 
+	return contactsData.filter(contact =>
 		contact.name.toLowerCase().includes(query) ||
 		contact.position.toLowerCase().includes(query) ||
 		contact.department.toLowerCase().includes(query) ||
@@ -46,32 +58,55 @@ function filterContacts(query) {
 
 function renderContactList(contacts) {
 	const contactList = document.querySelector('.contact-list');
-	contactList.innerHTML = '';
-	
-	contacts.forEach(contact => {
-		contactList.insertAdjacentHTML('beforeend', createContactItem(contact));
-	});
-	
-	document.querySelectorAll('.contact-item').forEach(item => {
-		item.addEventListener('click', () => {
-			const contactId = parseInt(item.dataset.id);
-			showContactDetail(contactId);
+	if (contactList) {
+		contactList.innerHTML = '';
+
+		contacts.forEach(contact => {
+			contactList.insertAdjacentHTML('beforeend', createContactItem(contact));
 		});
-	});
+
+		document.querySelectorAll('.contact-item').forEach(item => {
+			item.addEventListener('click', () => {
+				const contactId = parseInt(item.dataset.id);
+				showContactDetail(contactId);
+			});
+		});
+	}
+}
+
+export async function showContacts(searchQuery) {
+	const dir = document.querySelector('div.dir');
+	if (!dir) return;
+
+	let oldContacts = dir.querySelectorAll('div.contact');
+	for (let old of oldContacts) {
+		old.parentNode.removeChild(old);
+	}
+
+	let contacts = await fetch('api/users').then(res => res.json());
+	for (let contact of contacts) {
+		if (!searchQuery || contact.phone_number.includes(searchQuery)) {
+			dir.insertAdjacentHTML('beforeend', createContact(contact));
+		}
+	}
 }
 
 export function initDirectory() {
 	renderContactList(contactsData);
-	
+
 	const searchInput = document.querySelector('.dir-search input');
-	searchInput.addEventListener('input', (e) => {
-		const query = e.target.value.trim();
-		const filteredContacts = filterContacts(query);
-		renderContactList(filteredContacts);
-	});
-	
+	if (searchInput) {
+		searchInput.addEventListener('input', (e) => {
+			const query = e.target.value.trim();
+			const filteredContacts = filterContacts(query);
+			renderContactList(filteredContacts);
+		});
+	}
+
 	const backButton = document.querySelector('.back-button');
-	backButton.addEventListener('click', hideContactDetail);
+	if (backButton) {
+		backButton.addEventListener('click', hideContactDetail);
+	}
 }
 
 document.addEventListener('DOMContentLoaded', () => {

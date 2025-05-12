@@ -16,4 +16,15 @@ export async function showProfile(id) {
     document.getElementById('company').innerText = `${u.company_id}`;
     document.getElementById('location').innerText = `${u.location}`;
     document.getElementById('nickname').innerText = `${u.nickname}`;
+    
+    // Set the profile photos
+    const avatarElement = document.querySelector('.avatar');
+    if (avatarElement) {
+        avatarElement.style.backgroundImage = "url('assets/man1.png')";
+    }
+    
+    const profilePhotoElement = document.getElementById('profile-photo');
+    if (profilePhotoElement) {
+        profilePhotoElement.style.backgroundImage = "url('assets/man1.png')";
+    }
 }

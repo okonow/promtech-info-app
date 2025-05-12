@@ -284,6 +284,19 @@ div.prof {
 	display: none;
 	padding: 7.5em 1em 7em;
 }
+.profile-photo-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+.profile-photo {
+	width: 8em;
+	height: 8em;
+	border-radius: 50%;
+	background-size: cover;
+	background-position: center;
+	border: 0.2em solid var(--btn-bg-static-color);
+}
 .prof-entry {
 	padding: 0 0 0 1em;
 	margin: 0 0 0.35em;
@@ -1294,5 +1307,6 @@ div.prof {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="%23cccccc" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>');
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     flex-shrink: 0;
 }

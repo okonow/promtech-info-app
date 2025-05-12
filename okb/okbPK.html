@@ -123,26 +123,7 @@
                 <h2 class="section-title">Новости и анонсы</h2>
                 
                 <div class="news-container">
-                    <div class="news-item">
-                        <div class="news-image"></div>
-                        <div class="news-content">
-                            <div class="news-title">В "ОКБ "АКС" наградили победителей "AerospacePRO2024"!</div>
-                            <div class="news-footer">
-                                <a href="#" class="news-link">Читать далее</a>
-                                <span>20 дек 2024</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news-item">
-                        <div class="news-image"></div>
-                        <div class="news-content">
-                            <div class="news-title">Новая новость</div>
-                            <div class="news-footer">
-                                <a href="#" class="news-link">Читать далее</a>
-                                <span>Дата</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- News items will be dynamically loaded here -->
                 </div>
             </div>
             
@@ -257,6 +238,9 @@
             <!-- Профиль -->
             <div id="prof" class="content-section">
                 <div class="profile-info">
+                    <div class="profile-photo-container">
+                        <div class="profile-photo" id="profile-photo"></div>
+                    </div>
                     <div class="profile-entry">
                         <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_1.png')"></div>
                         <div class="profile-label">ФИО</div>
@@ -327,13 +311,14 @@
 </script>
 
 <script src="scripts/map.js"></script>
-<script type="module" src="scripts/okb.js"></script>
+<script type="module" src="scripts/okbPK.js"></script>
 <script type="module" src="scripts/notificationsPK.js"></script>
 <script type="module" src="scripts/hrServicesPK.js"></script>
 <script type="module" src="scripts/sportsServicesPK.js"></script>
 <script type="module" src="scripts/smallPopupsPK.js"></script>
 <script src="scripts/quickQuestionPK.js"></script>
 <script type="module" src="scripts/directoryPK.js"></script>
+<script type="module" src="scripts/desktopNews.js"></script>
 
 </body>
 </html>
