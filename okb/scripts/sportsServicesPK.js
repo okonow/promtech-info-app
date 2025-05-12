@@ -3,7 +3,10 @@ function toggleSportsServices() {
     sportsPanel.classList.toggle('active');
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 function createSportsServicesPanel() {
     const sportsPanel = document.createElement('div');
     sportsPanel.className = 'sports-panel';
@@ -93,6 +96,7 @@ function createSportsServicesPanel() {
         </div>
     `;
     
+<<<<<<< HEAD
     
     document.body.appendChild(sportsPanel);
 }
@@ -103,11 +107,23 @@ document.addEventListener('DOMContentLoaded', () => {
     createSportsServicesPanel();
     
     
+=======
+    document.body.appendChild(sportsPanel);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    createSportsServicesPanel();
+    
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const sportsCard = document.querySelector('.card:nth-child(6)');
     if (sportsCard) {
         sportsCard.addEventListener('click', toggleSportsServices);
     }
 });
 
+<<<<<<< HEAD
 
 window.toggleSportsServices = toggleSportsServices; 
+=======
+window.toggleSportsServices = toggleSportsServices; 
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9

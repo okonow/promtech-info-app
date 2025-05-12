@@ -3,7 +3,10 @@ function toggleSportsServices() {
     sportsPanel.classList.toggle('active');
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 function createSportsServicesPanel() {
     const sportsPanel = document.createElement('div');
     sportsPanel.className = 'sports-panel';
@@ -94,7 +97,10 @@ function createSportsServicesPanel() {
         </div>
     `;
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const appContainer = document.querySelector('.app');
     if (appContainer) {
         appContainer.appendChild(sportsPanel);
@@ -102,7 +108,10 @@ function createSportsServicesPanel() {
         document.body.appendChild(sportsPanel);
     }
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     let startY = 0;
     sportsPanel.addEventListener('touchstart', function(e) {
         startY = e.touches[0].clientY;
@@ -112,9 +121,13 @@ function createSportsServicesPanel() {
         let moveY = e.touches[0].clientY;
         let diff = moveY - startY;
         
+<<<<<<< HEAD
         
         if (diff > 0) {
             
+=======
+        if (diff > 0) {
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
             let translateY = Math.min(diff, 100);
             sportsPanel.style.transform = `translateY(${translateY}px)`;
             e.preventDefault();
@@ -122,26 +135,42 @@ function createSportsServicesPanel() {
     }, false);
     
     sportsPanel.addEventListener('touchend', function(e) {
+<<<<<<< HEAD
         
         if (parseInt(sportsPanel.style.transform.replace('translateY(', '')) > 80) {
             toggleSportsServices();
         }
         
+=======
+        if (parseInt(sportsPanel.style.transform.replace('translateY(', '')) > 80) {
+            toggleSportsServices();
+        }
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
         sportsPanel.style.transform = '';
     }, false);
 }
 
+<<<<<<< HEAD
 
 document.addEventListener('DOMContentLoaded', () => {
     
     createSportsServicesPanel();
     
     
+=======
+document.addEventListener('DOMContentLoaded', () => {
+    createSportsServicesPanel();
+    
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const sportsCard = document.querySelector('.card:nth-child(6)');
     if (sportsCard) {
         sportsCard.addEventListener('click', toggleSportsServices);
     }
 });
 
+<<<<<<< HEAD
 
 window.toggleSportsServices = toggleSportsServices; 
+=======
+window.toggleSportsServices = toggleSportsServices; 
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9

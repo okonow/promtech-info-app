@@ -274,7 +274,11 @@ div.dir {
 div.dir input {
 	padding: 0 0 0 3em;
 	font-weight: normal;
+<<<<<<< HEAD
 	width: 100%;
+=======
+	width: 28.5em;
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 }
 .contact {
 	height: 3em;
@@ -343,7 +347,10 @@ div.prof {
     color: var(--card-secondary-color);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 .hr-panel {
     position: fixed;
     top: 0;
@@ -539,7 +546,10 @@ div.prof {
     margin: 0 auto 1.5em;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 .sports-panel {
     position: fixed;
     top: 0;
@@ -819,7 +829,10 @@ div.prof {
     background-color: var(--btn-bg-active-color);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 .card-popup {
     position: fixed;
     inset: 0;
@@ -896,7 +909,10 @@ div.prof {
     transform: rotate(-45deg);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 .quick-panel {
     position: fixed;
     top: 0;
@@ -1133,6 +1149,7 @@ div.prof {
     background-position: center;
     background-repeat: no-repeat;
     flex-shrink: 0;
+<<<<<<< HEAD
 }
 
 
@@ -1296,3 +1313,6 @@ div.prof {
     background-repeat: no-repeat;
     flex-shrink: 0;
 }
+=======
+}
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9

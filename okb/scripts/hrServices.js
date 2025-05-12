@@ -3,7 +3,10 @@ function toggleHrServices() {
     hrPanel.classList.toggle('active');
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
 function createHrServicesPanel() {
     const hrPanel = document.createElement('div');
     hrPanel.className = 'hr-panel';
@@ -65,7 +68,10 @@ function createHrServicesPanel() {
         </div>
     `;
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const appContainer = document.querySelector('.app');
     if (appContainer) {
         appContainer.appendChild(hrPanel);
@@ -73,7 +79,10 @@ function createHrServicesPanel() {
         document.body.appendChild(hrPanel);
     }
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     let startY = 0;
     hrPanel.addEventListener('touchstart', function(e) {
         startY = e.touches[0].clientY;
@@ -83,9 +92,13 @@ function createHrServicesPanel() {
         let moveY = e.touches[0].clientY;
         let diff = moveY - startY;
         
+<<<<<<< HEAD
         
         if (diff > 0) {
             
+=======
+        if (diff > 0) {
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
             let translateY = Math.min(diff, 100);
             hrPanel.style.transform = `translateY(${translateY}px)`;
             e.preventDefault();
@@ -93,26 +106,42 @@ function createHrServicesPanel() {
     }, false);
     
     hrPanel.addEventListener('touchend', function(e) {
+<<<<<<< HEAD
         
         if (parseInt(hrPanel.style.transform.replace('translateY(', '')) > 80) {
             toggleHrServices();
         }
         
+=======
+        if (parseInt(hrPanel.style.transform.replace('translateY(', '')) > 80) {
+            toggleHrServices();
+        }
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
         hrPanel.style.transform = '';
     }, false);
 }
 
+<<<<<<< HEAD
 
 document.addEventListener('DOMContentLoaded', () => {
     
     createHrServicesPanel();
     
     
+=======
+document.addEventListener('DOMContentLoaded', () => {
+    createHrServicesPanel();
+    
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
     const hrCard = document.querySelector('.card:nth-child(1)');
     if (hrCard) {
         hrCard.addEventListener('click', toggleHrServices);
     }
 });
 
+<<<<<<< HEAD
 
 window.toggleHrServices = toggleHrServices; 
+=======
+window.toggleHrServices = toggleHrServices; 
+>>>>>>> 11f44dbfcd4cd7278a6652d366a3a4798e2cb7c9
