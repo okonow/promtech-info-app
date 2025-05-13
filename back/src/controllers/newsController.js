@@ -47,6 +47,26 @@ class NewsController {
             });
         }
     }
+
+    async getNewsByCompanyId(req, res) {
+        try {
+            const { company_id } = req.params;
+            
+            if (!company_id) {
+                return res.status(400).json({ 
+                    message: 'Company ID is required in URL parameters' 
+                });
+            }
+
+            const news = await this.newsService.getNewsByCompanyId(company_id);
+            res.json(news);
+        } catch (error) {
+            res.status(500).json({ 
+                message: 'Error fetching news by company',
+                error: error.message 
+            });
+        }
+    }
 }
 
 export default NewsController;
