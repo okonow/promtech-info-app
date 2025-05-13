@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8'>
+    <title>OKB News App - Desktop Version</title>
+    <link rel=stylesheet href=okbPK.css>
+        <!-- Leaflet CSS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- Leaflet Routing Machine JS -->
+    <script
+    src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js">
+    </script>
+
+<body>
+<div class="app-desktop">
+    <div class="sidebar">
+        <div class="logo">OKB АКС</div>
+        <div class="login-curtain">
+            <div class="image"></div>
+                <form class="login">
+                    <h2 class="auth-title">Вход в систему</h2>
+                    <label for=login></label><br>
+                    <label for="login">Телефон или корпоративный логин</label>
+                    
+                    <input name="login" placeholder="Введите логин" type="text">
+                    
+                    <label for="password">Пароль</label>
+                    <input name="password" placeholder="••••••••" type="password">
+                    
+                    <p class="for-errors"></p>
+                    
+                    <button type="submit" class="primary">Войти</button>
+                    
+                    <div class="login-footer">
+                        <a href="#">Забыли пароль?</a> • <a href="#">Помощь при входе</a>
+                    </div>
+                </form>
+        </div>
+        <nav class="main-nav">
+            <button class="nav-btn active" onclick="showSection('home')">
+                <span class="icon home"></span>
+                <span class="label">Главная</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('docs')">
+                <span class="icon docs"></span>
+                <span class="label">Документы</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('map')">
+                <span class="icon map"></span>
+                <span class="label">Карта</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('dir')">
+                <span class="icon dir"></span>
+                <span class="label">Справочник</span>
+            </button>
+            <button class="nav-btn" onclick="showSection('prof')">
+                <span class="icon prof"></span>
+                <span class="label">Профиль</span>
+            </button>
+        </nav>
+        <div class="user-profile">
+            <div class="avatar"></div>
+            <div class="user-info">
+                <span class="user-name">Иван Иванов</span>
+                <span class="user-position">Инженер-конструктор</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="top-bar">
+            <div class="search-bar">
+                <input type="text" placeholder="Поиск...">
+                <button class="search-btn"></button>
+            </div>
+            <div class="notifications">
+                <button class="notif-btn"></button>
+                <span class="notif-badge">3</span>
+            </div>
+        </div>
+        
+        <div class="notif-panel">
+            <div class="notif-panel-header">
+                <h3>Уведомления</h3>
+                <button class="notif-close-btn"></button>
+            </div>
+            <div class="notif-container">
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <!-- Главная -->
+            <div id="home" class="content-section active">
+                <div class="card-container">
+                    <div class="card">HR-сервисы</div>
+                    <div class="card">Обучение и развитие</div>
+                    <div class="card">Охрана труда</div>
+                    <div class="card">ИТ</div>
+                    <div class="card">Социальные программы</div>
+                    <div class="card">Всем спорт и отдых (после продуктивной работы!)</div>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-primary">Гид нового сотрудника</button>
+                    <button class="btn btn-muted">"Мне только спросить"</button>
+                </div>
+                
+                <h2 class="section-title">Новости и анонсы</h2>
+                
+                <div class="news-container">
+                    <!-- News items will be dynamically loaded here -->
+                </div>
+            </div>
+            
+            <!-- Документы -->
+            <div id="docs" class="content-section">
+                <div class="doc-section">
+                    <h3 class="doc-section-title">Раздел 1</h3>
+                    <div class="doc-list">
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                    </div>
+                </div>
+                
+                <div class="doc-section">
+                    <h3 class="doc-section-title">Раздел 2</h3>
+                    <div class="doc-list">
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                        <div class="doc-item">Документ</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Карта -->
+            <div id="map" class="content-section">
+                <div class="map-layout">
+                    <div id="office-map"></div>
+                    <div class="map-controls">
+                        <h3>Построить маршрут</h3>
+                        <label>Откуда:</label>
+                        <input id="start-point"
+                            type="text"
+                            placeholder="Старт (lat,lng)"
+                            value="56.726805,37.146724"
+                            style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
+                        <label>Куда:</label>
+                        <input id="end-point"
+                            type="text"
+                            placeholder="Финиш (lat,lng)"
+                            value="56.753676,37.165452"
+                            style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
+                        <button onclick="buildRoute()">Построить маршрут</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Справочник -->
+            <div id="dir" class="content-section">
+                <div class="directory-layout">
+                    <div class="directory-list">
+                        <div class="dir-search">
+                            <div class="search-icon"></div>
+                            <input type="text" placeholder="Поиск по справочнику">
+                        </div>
+                        
+                        <div class="contact-list">
+                            <!-- Contacts will be dynamically added here -->
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail-panel" style="display: none;">
+                        <div class="contact-detail-header">
+                            <button class="back-button"></button>
+                            <h2>Контакт</h2>
+                        </div>
+                        <div class="contact-detail-content">
+                            <div class="contact-info">
+                                <div class="contact-info-item">
+                                    <div class="contact-icon user-icon"></div>
+                                    <span id="detail-name-pk">Фамилия Имя Отчество</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon phone-icon"></div>
+                                    <span id="detail-phone-pk">Служебный телефон</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon mail-icon"></div>
+                                    <span id="detail-email-pk">Почта</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon briefcase-icon"></div>
+                                    <span id="detail-position-pk">Должность</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon folder-icon"></div>
+                                    <span id="detail-department-pk">Отдел</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon globe-icon"></div>
+                                    <span id="detail-company-pk">Организация</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon pin-icon"></div>
+                                    <span id="detail-location-pk">Размещение</span>
+                                </div>
+                                <div class="contact-info-item">
+                                    <div class="contact-icon message-icon"></div>
+                                    <span id="detail-nickname-pk">Псевдоним</span>
+                                </div>
+                            </div>
+                            <div class="contact-photo-pk"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Профиль -->
+            <div id="prof" class="content-section">
+                <div class="profile-info">
+                    <div class="profile-photo-container">
+                        <div class="profile-photo" id="profile-photo"></div>
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_1.png')"></div>
+                        <div class="profile-label">ФИО</div>
+                        <div class="profile-value" id="full-name"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_2.png')"></div>
+                        <div class="profile-label">Служебный телефон</div>
+                        <div class="profile-value" id="phone-number"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_3.png')"></div>
+                        <div class="profile-label">Почта</div>
+                        <div class="profile-value" id="email"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_4.png')"></div>
+                        <div class="profile-label">Должность</div>
+                        <div class="profile-value" id="position"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_5.png')"></div>
+                        <div class="profile-label">Отдел</div>
+                        <div class="profile-value" id="department"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_6.png')"></div>
+                        <div class="profile-label">Организация</div>
+                        <div class="profile-value" id="company"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_7.png')"></div>
+                        <div class="profile-label">Размещение</div>
+                        <div class="profile-value" id="location"></div> <!-- добавлен id для привязки -->
+                    </div>
+                    <div class="profile-entry">
+                        <div class="profile-icon" style="background-image: url('assets/profile_icons/ico_8.png')"></div>
+                        <div class="profile-label">Псевдоним</div>
+                        <div class="profile-value" id="nickname"></div> <!-- добавлен id для привязки -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    function showSection(sectionId) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+
+        document.getElementById(sectionId).classList.add('active');
+
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        event.currentTarget.classList.add('active');
+
+        if (sectionId === 'map' && !window.mapInitialized) {
+            initMap();
+            window.mapInitialized = true;
+        }
+    }
+    
+</script>
+
+<script src="scripts/map.js"></script>
+<script type="module" src="scripts/okbPK.js"></script>
+<script type="module" src="scripts/notificationsPK.js"></script>
+<script type="module" src="scripts/hrServicesPK.js"></script>
+<script type="module" src="scripts/sportsServicesPK.js"></script>
+<script type="module" src="scripts/smallPopupsPK.js"></script>
+<script src="scripts/quickQuestionPK.js"></script>
+<script type="module" src="scripts/directoryPK.js"></script>
+<script type="module" src="scripts/desktopNews.js"></script>
+
+</body>
+</html>
+    

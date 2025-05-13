@@ -1,0 +1,18 @@
+[
+	{
+		"id": 0,
+		"user_id": 0,
+		"phone_number": "555-0880",
+		"position_id": 0,
+		"company_id": 0,
+		"department_id": 0
+	},
+	{
+		"id": 1,
+		"user_id": 1,
+		"phone_number": "444-0880",
+		"position_id": 0,
+		"company_id": 0,
+		"department_id": 0
+	}
+]

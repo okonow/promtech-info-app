@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!--meta http-equiv='Cache-Control' content='no-cache'-->
+	<meta http-equiv='CONTENT-TYPE' content='text/html; charset=UTF-8'>
+	<title>news app</title>
+	<link rel=stylesheet href=okb.css>
+
+	<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet Routing Machine CSS -->
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+    />
+
+    <!-- Leaflet JS -->
+    <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+    </script>
+
+    <!-- Leaflet Routing Machine JS -->
+    <script
+    src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js">
+    </script>
+
+</head>
+<body>
+<div class=app>
+	<div class=login-curtain>
+		<div class=image></div>
+		<form class=login>
+			<label for=login>Телефон или корпоративный логин</label><br>
+			<input name=login placeholder=Ввод /><br>
+			<label for=password>Пароль</label><br>
+			<input name=password placeholder=•••••••• /><br>
+			<p class=for-errors></p>
+			<button type=submit class=primary>Войти</button>
+		</form>
+	</div>
+	<div class=menubar>
+		<button class=search></button>
+		<button class=notifs onclick=openClose()></button>
+	</div>
+	<div class=navbar>
+		<button class=home onclick=moveTo(1)></button>
+		<button class=docs onclick=moveTo(2)></button>
+		<button class=map  onclick=moveTo(3)></button>
+		<button class=dir  onclick=moveTo(4)></button>
+		<button class=prof onclick=moveTo(5)></button>
+	</div>
+	<div class=notif-wrapper>
+		<button class=notif-close onclick=openClose()></button>
+		<div class=notif-container>
+		</div>
+	</div>
+	<div class=scroll-wrapper>
+		<div class=home>
+			<div class=card-container>
+				<div class=card>HR-сервисы</div>
+				<div class=card>Обучение и развитие</div>
+				<div class=card>Охрана труда</div>
+				<div class=card>ИТ</div>
+				<div class=card>Социальные программы</div>
+				<div class=card>Всем спорт<br>и отдых (после продуктивной работы!)</div>
+			</div>
+			<button class=primary>Гид нового сотрудника</button>
+			<button class=muted>"Мне только спросить"</button>
+			<h2>Новости и анонсы</h2>
+			<div class=news-container></div>
+		</div>
+		<div class=docs>
+			<div class=sec>
+				<h2>Раздел 1</h2>
+			</div>
+			<div class=sec>
+				<h2>Раздел 2</h2>
+			</div>
+		</div>
+		
+		<div class="map">
+			<div id="office-map" style="width: 100%; height: 50vh; border-radius: 0.75em; margin-bottom: 0.75em;"></div>
+
+			<input id="start-point"
+				placeholder="Старт (lat,lng)"
+				value="56.726805, 37.146724"
+				style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
+
+			<input id="end-point"
+				placeholder="Финиш (lat,lng)"
+				value="56.753676, 37.165452"
+				style="width: 100%; font-size: 0.8em; padding: 0.4em; margin-bottom: 0.5em;" />
+
+			<button class="primary"
+				onclick="buildRoute()"
+				style="font-size: 0.85em; padding: 0.5em 1em;">Построить маршрут</button>
+		</div>
+		
+		<div class=dir>
+			<div class="dir-search">
+				<div class="search-icon"></div>
+				<input placeholder='Поиск по справочнику' />
+			</div>
+			<div class="contact-list">
+				<!-- Contacts will be dynamically added here -->
+			</div>
+			
+			<!-- Contact detail view (hidden by default) -->
+			<div class="contact-detail" style="display: none;">
+				<div class="contact-detail-header">
+					<button class="back-button"></button>
+					<h2>Контакт</h2>
+				</div>
+				<div class="contact-detail-content">
+					<div class="contact-info">
+						<div class="contact-info-item">
+							<div class="contact-icon user-icon"></div>
+							<span id="detail-name">Фамилия Имя Отчество</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon phone-icon"></div>
+							<span id="detail-phone">Служебный телефон</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon mail-icon"></div>
+							<span id="detail-email">Почта</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon briefcase-icon"></div>
+							<span id="detail-position">Должность</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon folder-icon"></div>
+							<span id="detail-department">Отдел</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon globe-icon"></div>
+							<span id="detail-company">Организация</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon pin-icon"></div>
+							<span id="detail-location">Размещение</span>
+						</div>
+						<div class="contact-info-item">
+							<div class="contact-icon message-icon"></div>
+							<span id="detail-nickname">Псевдоним</span>
+						</div>
+					</div>
+					<div class="contact-photo"></div>
+				</div>
+			</div>
+		</div>
+		<div class="prof">
+			<div class="profile-photo-container">
+				<div class="profile-photo" id="profile-photo"></div>
+			</div>
+			<p class="prof-entry" id="full-name">ФИО</p>
+			<p class="prof-entry" id="phone-number">Служебный телефон</p>
+			<p class="prof-entry" id="email">Почта</p>
+			<p class="prof-entry" id="position">Должность</p>
+			<p class="prof-entry" id="department">Отдел</p>
+			<p class="prof-entry" id="company">Организация</p>
+			<p class="prof-entry" id="location">Размещение</p>
+			<p class="prof-entry" id="nickname">Псевдоним</p>
+		</div>
+	</div>
+	<script type=module src='scripts/okb.js'></script>
+	<script type=module src='scripts/map.js'></script>
+	<script type=module src='scripts/hrServices.js'></script>
+	<script type=module src='scripts/sportsServices.js'></script>
+	<script type=module src='scripts/smallPopups.js'></script>
+	<script src='scripts/quickQuestion.js'></script>
+	<script type=module src='scripts/directory.js'></script>
+</div>
+</body>
+</html>

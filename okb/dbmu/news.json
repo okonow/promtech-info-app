@@ -1,0 +1,20 @@
+[
+	{
+		"id": 0,
+		"title": "В 'ОКБ АКС' наградили победителей 'AerospacePRO2024'!",
+		"content": "Лорем ипсум",
+		"author_id": 0,
+		"company_id": 0,
+		"created_at": "20 Дек 2024",
+		"image_url": "assets/new1.png"
+	},
+	{
+		"id": 1,
+		"title": "ОКБ 'АКС' стало трижды дипломантом конкурса 'Авиастроитель года'!",
+		"content": "Лорем ипсум",
+		"author_id": 0,
+		"company_id": 0,
+		"created_at": "20 Дек 2024",
+		"image_url": "assets/new2.png"
+	}
+]
