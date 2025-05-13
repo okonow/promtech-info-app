@@ -10,10 +10,11 @@ import UserRepository from '../repositories/userRepository.js';
 import DocumentService from './documentService.js';
 import DocumentRepository from '../repositories/documentRepository.js';
 
-import NewsService from '../repositories/newsRepository.js';
+import NewsService from './newsService.js';
 import NewsRepository from '../repositories/newsRepository.js';
 
 import { sequelize } from '../db.js';
+import models from '../models/index.js';
 
 const companyRepository = new CompanyRepository(sequelize.models.Company);
 const companyService = new CompanyService(companyRepository);
@@ -27,9 +28,8 @@ const userService = new UserService(userRepository);
 const documentRepository = new DocumentRepository(sequelize.models.Document);
 const documentService = new DocumentService(documentRepository);
 
-const newsRepository = new NewsRepository(sequelize.models.News);
+const newsRepository = new NewsRepository(sequelize.models.News, models);
 const newsService = new NewsService(newsRepository);
-
 
 export {
     companyService,
