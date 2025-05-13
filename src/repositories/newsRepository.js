@@ -1,6 +1,7 @@
 class NewsRepository {
-    constructor(News) {
+    constructor(News, models) {
         this.News = News;
+        this.models = models;
     }
 
     async getAllNews(companyId, options = {}) {
@@ -9,12 +10,12 @@ class NewsRepository {
             attributes: ['id', 'title', 'cover_image', 'createdAt'],
             include: [
                 {
-                    model: this.News.sequelize.models.User,
+                    model: this.models.User,
                     as: 'author',
                     attributes: ['id', 'first_name', 'last_name']
                 },
                 {
-                    model: this.News.sequelize.models.Company,
+                    model: this.models.Company,
                     attributes: ['id', 'name']
                 }
             ],
@@ -30,18 +31,39 @@ class NewsRepository {
             attributes: ['id', 'title', 'content', 'cover_image', 'createdAt'],
             include: [
                 {
-                    model: this.News.sequelize.models.User,
+                    model: this.models.User,
                     as: 'author',
                     attributes: ['id', 'first_name', 'last_name']
                 },
                 {
-                    model: this.News.sequelize.models.Company,
+                    model: this.models.Company,
                     attributes: ['id', 'name', 'description']
                 }
             ]
         };
 
         return await this.News.findByPk(id, options);
+    }
+
+    async getNewsByCompanyId(companyId) {
+        const options = {
+            where: { company_id: companyId },
+            attributes: ['id', 'title', 'content', 'cover_image', 'createdAt'],
+            include: [
+                {
+                    model: this.models.User,
+                    as: 'author',
+                    attributes: ['id', 'first_name', 'last_name']
+                },
+                {
+                    model: this.models.Company,
+                    attributes: ['id', 'name', 'description']
+                }
+            ],
+            order: [['createdAt', 'DESC']]
+        };
+
+        return await this.News.findAll(options);
     }
 }
 

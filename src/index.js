@@ -68,6 +68,7 @@ const start = async () => {
         console.log('Database synchronized');
 
         // Add data to DB
+        
         // const dbsqlFilePath = path.join(__dirname, 'db.sql');
         // const sqlScript = fs.readFileSync(dbsqlFilePath, 'utf8');
         // const [results, metadata] = await sequelize.query(sqlScript);

@@ -29,6 +29,18 @@ class NewsService {
             throw new Error('Failed to fetch news: ' + error.message);
         }
     }
+
+    async getNewsByCompanyId(companyId) {
+        try {
+            if (!companyId) {
+                throw new Error('Company ID is required');
+            }
+            const news = await this.newsRepository.getNewsByCompanyId(companyId);
+            return news;
+        } catch (error) {
+            throw new Error('Failed to fetch news by company: ' + error.message);
+        }
+    }
 }
 
 export default NewsService;
